@@ -1,29 +1,34 @@
-# USI-Brain Project Page
+# USI-Brain
 
-Static project page for **USI-Brain: Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling**.
+**Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling**
 
-## Preview locally
+[Project Page](https://wotwoker.github.io/USI-brain/) · [Paper](<assets/USI_Brain__arxiv_.pdf>) · [Code & Models](https://github.com/SKY-Zhu-91/USI-Brain)
 
-No build step or third-party dependencies are required. From the repository root, run:
+USI-Brain is a vision-language model designed for underwater spatial intelligence. It learns to locate and understand objects, reason about 2D and 3D spatial relationships, perceive degraded underwater scenes, and interpret ecological context.
 
-```bash
-python -m http.server 8000
-```
+The project introduces a spatial data engine that connects enhanced underwater imagery with object-level geometry. Through 2D and geometry-assisted question generation, capability-based organization, and expert filtering, the engine produces **4.27 million spatial QA pairs** for model training.
 
-Then open `http://localhost:8000`.
+## Highlights
 
-## Deploy with GitHub Pages
+- **USI-Brain:** an underwater vision-language model adapted from Qwen3-VL-8B-Instruct.
+- **UPR:** an Underwater Prior-guided Rectifier that applies gated corrections to visual features.
+- **USI-Bench:** 6,525 held-out QA pairs covering five underwater spatial-intelligence capabilities.
+- **Strong performance:** best or joint-best results on 28 of 32 metrics across NautData, UWBench, and MarineEval.
 
-1. Push this repository to GitHub.
-2. Open **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select the publishing branch (usually `main`) and `/(root)`, then save.
+## Five Capability Groups
 
-The site is fully static and uses relative asset paths, so it works both on a user site and under a project subpath such as `https://username.github.io/repository/`.
+1. Object Grounding & Understanding
+2. 2D Relations & Layout
+3. 3D Depth & Stratification
+4. Degradation-aware Perception
+5. Scene & Ecological Reasoning
 
-## Main files
+## Authors
 
-- `index.html` — page structure and research content
-- `css/style.css` — responsive visual design
-- `js/app.js` — navigation, reveal effects, progress, and citation copy
-- `assets/` — paper PDF and figures
+Zhiliang Zhu, Zhiqiang Zhao, Xie'an Jiang, Yingxin Lai, Kangye Zheng, and Dawei Zhao.
+
+Harbin Engineering University · Xiamen University
+
+## About This Repository
+
+This repository contains the static project page for USI-Brain, including the paper, figures, responsive styles, and lightweight browser interactions. The website is implemented with plain HTML, CSS, and JavaScript and is hosted with GitHub Pages.
