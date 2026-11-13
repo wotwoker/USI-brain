@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071c2e">
+  <meta name="theme-color" content="#123f4c">
   <meta name="description" content="USI-Brain is a vision-language model for underwater spatial intelligence, trained with 4.27M spatial QA pairs and evaluated on USI-Bench.">
   <meta property="og:title" content="USI-Brain — Underwater Spatial Intelligence">
   <meta property="og:description" content="Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling">
@@ -15,237 +15,231 @@
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
 
   <header class="site-header" id="site-header">
-    <a class="brand" href="#top" aria-label="USI-Brain home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" role="img"><path d="M4 17.2c5.1-6.9 10.8-8.7 17.1-5.4 2.4 1.3 4.7 1.5 6.9.6-2.9 5.8-7.2 8.7-13 8.7-4.2 0-7.5-1.3-10-3.9Z"/><path d="M7.4 11.2c2.9-3.9 6.4-5.8 10.4-5.8 3.7 0 6.7 1.4 9.2 4.1-3.1.6-5.8.1-8.2-1.3-3.8-2.1-7.6-1.1-11.4 3Z" opacity=".45"/></svg>
-      </span>
-      <span>USI-Brain</span>
-    </a>
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="USI-Brain home">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 42 42"><path d="M7 24.2c6.7-8.7 14.1-10.9 22.2-6.7 3.1 1.7 6 1.9 8.8.7-3.7 7.3-9.3 10.8-16.8 10.8-5.4 0-9.7-1.6-13-4.8Z"/><circle cx="28.8" cy="20" r="1.35"/></svg>
+        </span>
+        <span>USI-Brain</span>
+      </a>
 
-    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span class="sr-only">Toggle navigation</span>
-      <span></span><span></span>
-    </button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <i></i><i></i>
+      </button>
 
-    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-      <a href="#overview">Overview</a>
-      <a href="#method">Method</a>
-      <a href="#benchmark">Benchmark</a>
-      <a href="#results">Results</a>
-      <a href="#citation">Citation</a>
-    </nav>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#benchmark">USI-Bench</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero" aria-labelledby="paper-title">
-      <div class="hero-noise" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
-
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow"><span></span> Underwater spatial intelligence</p>
-          <h1 id="paper-title">USI-Brain</h1>
-          <p class="paper-title">Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling</p>
-
-          <div class="authors" aria-label="Authors">
-            <span>Zhiliang Zhu<sup>1,*,†</sup></span>
-            <span>Zhiqiang Zhao<sup>1,*</sup></span>
-            <span>Xie’an Jiang<sup>1,*</sup></span>
-            <span>Yingxin Lai<sup>2</sup></span>
-            <span>Kangye Zheng<sup>1</sup></span>
-            <span>Dawei Zhao<sup>1,‡</sup></span>
-          </div>
-
-          <p class="affiliations"><sup>1</sup>Harbin Engineering University &nbsp;&nbsp; <sup>2</sup>Xiamen University</p>
-          <p class="author-notes"><sup>*</sup>Equal contribution &nbsp; <sup>†</sup>Project leader &nbsp; <sup>‡</sup>Corresponding author</p>
-
-          <div class="hero-actions" aria-label="Project links">
-            <a class="button button-primary" href="assets/USI_Brain__arxiv_.pdf" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6V2Zm7 1.5V7h3.5M9 12h6M9 16h6"/></svg>
-              Paper
-            </a>
-            <a class="button button-secondary" href="https://github.com/SKY-Zhu-91/USI-Brain" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 .9-4-2-5-2.5m10 5v-3.1c0-.9.3-1.6.8-2-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.3-3.3 4.4 4.4 0 0 1 .1-3.3s1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3a4.4 4.4 0 0 1 .1 3.3 4.7 4.7 0 0 1 1.3 3.3c0 4.7-2.8 5.7-5.5 6 .5.4.8 1.2.8 2v3.1" transform="translate(-5)"/></svg>
-              Code
-            </a>
-            <a class="button button-secondary" href="#benchmark">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg>
-              USI-Bench
-            </a>
-          </div>
+      <div class="hero-content">
+        <div class="project-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64"><path d="M10 37.5c10.1-13.1 21.2-16.5 33.4-10.1 4.7 2.5 9.1 2.9 13.3 1-5.6 11-14 16.3-25.3 16.3-8.1 0-14.6-2.4-19.5-7.2Z"/><path d="M16.8 27.1c6-7.9 13.1-11.8 21.3-11.8 7.5 0 13.8 2.8 18.9 8.4-6.3 1.3-12 .4-17-2.6-7.8-4.3-15.5-2.3-23.2 6Z" opacity=".42"/><circle cx="44.3" cy="31.4" r="2.1" fill="#fff"/></svg>
         </div>
 
-        <div class="hero-visual" aria-label="Underwater research visual">
-          <div class="sonar sonar-one" aria-hidden="true"></div>
-          <div class="sonar sonar-two" aria-hidden="true"></div>
-          <div class="depth-scale" aria-hidden="true">
-            <span>0 m</span><i></i><span>20</span><i></i><span>40</span><i></i><span>60</span>
-          </div>
-          <div class="hero-visual-caption">
-            <span class="caption-index">01</span>
-            <p>Connecting underwater appearance with object-level geometry.</p>
-          </div>
-          <div class="scan-line" aria-hidden="true"></div>
+        <p class="hero-kicker">Underwater Spatial Intelligence</p>
+        <h1 id="paper-title">USI-Brain</h1>
+        <p class="hero-subtitle">Enhancing Underwater Spatial Intelligence via<br class="desktop-break"> Spatial Data-Driven Vision-Language Modeling</p>
+
+        <div class="hero-badge">Research Project <span></span> Vision-Language Modeling</div>
+
+        <div class="authors" aria-label="Authors">
+          <span>Zhiliang Zhu<sup>1,*,†</sup></span>
+          <span>Zhiqiang Zhao<sup>1,*</sup></span>
+          <span>Xie’an Jiang<sup>1,*</sup></span>
+          <span>Yingxin Lai<sup>2</sup></span>
+          <span>Kangye Zheng<sup>1</sup></span>
+          <span>Dawei Zhao<sup>1,‡</sup></span>
+        </div>
+
+        <div class="affiliations">
+          <span><sup>1</sup> Harbin Engineering University</span>
+          <span><sup>2</sup> Xiamen University</span>
+        </div>
+        <p class="author-notes"><sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>†</sup> Project leader &nbsp;&nbsp; <sup>‡</sup> Corresponding author</p>
+
+        <div class="paper-links" aria-label="Project links">
+          <a class="paper-link" href="assets/USI_Brain__arxiv_.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4V22H6V2.5Zm8 0v4h4M9 12h6M9 16h6"/></svg>
+            Paper
+          </a>
+          <a class="paper-link" href="https://github.com/SKY-Zhu-91/USI-Brain" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 .9-4-2-5-2.5m10 5v-3.1c0-.9.3-1.6.8-2-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.3-3.3 4.4 4.4 0 0 1 .1-3.3s1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3a4.4 4.4 0 0 1 .1 3.3 4.7 4.7 0 0 1 1.3 3.3c0 4.7-2.8 5.7-5.5 6 .5.4.8 1.2.8 2v3.1" transform="translate(-5)"/></svg>
+            Code
+          </a>
+          <a class="paper-link" href="#benchmark">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg>
+            USI-Bench
+          </a>
+          <a class="paper-link" href="mailto:daweizhao@hrbeu.edu.cn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3V5Zm1 1 8 7 8-7"/></svg>
+            Contact
+          </a>
         </div>
       </div>
 
-      <div class="hero-stats" aria-label="Key paper statistics">
-        <div><strong>4.27M</strong><span>spatial QA pairs</span></div>
-        <div><strong>6,525</strong><span>held-out benchmark QA</span></div>
-        <div><strong>28 / 32</strong><span>best or joint-best metrics</span></div>
-        <div><strong>+7.63</strong><span>points with UPR on USI-Bench</span></div>
+      <a class="scroll-cue" href="#abstract" aria-label="Scroll to abstract">
+        <span></span> Explore the paper
+      </a>
+    </section>
+
+    <section class="paper-section abstract-section" id="abstract">
+      <div class="container narrow">
+        <div class="section-heading reveal">
+          <span class="section-label">Overview</span>
+          <h2>Abstract</h2>
+        </div>
+        <div class="abstract-copy reveal">
+          <p>Underwater spatial reasoning depends on object boundaries and geometric cues that are obscured by scattering, color distortion, and low visibility. Existing underwater resources capture these cues through images, annotations, and depth maps, but provide fragmented supervision for vision-language models.</p>
+          <p>We present a <strong>spatial data engine</strong> that connects visual appearance with object-level geometry through enhancement, 2D and geometry-assisted question generation, and expert filtering. It produces <strong>4.27M QA pairs</strong> across five capability groups. We use this corpus to train USI-Brain and introduce an <strong>Underwater Prior-guided Rectifier (UPR)</strong> that applies gated corrections to visual features.</p>
+          <p><strong>USI-Bench</strong> evaluates the resulting capabilities with 6,525 held-out QA pairs. Across NautData, UWBench, and MarineEval, USI-Brain achieves the best or joint-best score on <strong>28 of 32 metrics</strong>.</p>
+        </div>
+      </div>
+
+      <div class="container wide">
+        <figure class="paper-figure hero-figure reveal">
+          <img src="assets/Figure%201%20Overview%20of%20the%20underwater%20spatial%20data%20engine.png" alt="Overview of the underwater spatial data engine." width="2019" height="658" loading="eager">
+          <figcaption><strong>Figure 1.</strong> The underwater spatial data engine enhances heterogeneous inputs, generates 2D and geometry-assisted 3D QA, organizes them into five capability groups, and applies expert filtering.</figcaption>
+        </figure>
+
+        <div class="key-stats reveal" aria-label="Key project statistics">
+          <div><strong>4.27M</strong><span>Spatial QA pairs</span></div>
+          <div><strong>6,525</strong><span>USI-Bench QA pairs</span></div>
+          <div><strong>15</strong><span>Task-level metrics</span></div>
+          <div><strong>28 / 32</strong><span>Best or joint-best</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="section section-light" id="overview">
-      <div class="section-shell">
-        <div class="section-kicker reveal">01 / Overview</div>
-        <div class="overview-grid">
-          <div class="section-heading reveal">
-            <h2>Spatial reasoning,<br>built for the underwater world.</h2>
-          </div>
-          <div class="abstract reveal">
-            <p class="lead">Underwater spatial reasoning depends on boundaries and geometric cues that are often obscured by scattering, color distortion, and low visibility.</p>
-            <p>USI-Brain unifies fragmented underwater resources through a spatial data engine that connects visual appearance with object-level geometry. The engine combines image enhancement, 2D and geometry-assisted question generation, capability-based organization, and expert filtering to produce a large-scale spatial supervision corpus.</p>
-            <p>We train USI-Brain from Qwen3-VL-8B-Instruct and introduce the Underwater Prior-guided Rectifier (UPR), which applies gated corrections to visual features while preserving their original representation.</p>
-          </div>
+    <section class="paper-section contribution-section">
+      <div class="container wide">
+        <div class="section-heading reveal">
+          <span class="section-label">What we contribute</span>
+          <h2>Three pieces, one spatial system</h2>
         </div>
 
-        <div class="contribution-grid">
+        <div class="contributions">
           <article class="contribution reveal">
-            <span class="contribution-number">01</span>
-            <h3>Spatial data engine</h3>
-            <p>Connects enhanced images, instance annotations, and geometric cues into 4.27M quality-controlled QA pairs.</p>
+            <span class="contribution-index">01</span>
+            <div class="contribution-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M7 11h34v25H7zM13 17h10v7H13zM27 17h8M27 22h8M13 29h22"/></svg>
+            </div>
+            <h3>Spatial Data Engine</h3>
+            <p>Connects enhanced underwater imagery, instance annotations, and geometric cues into a unified, quality-controlled training corpus.</p>
           </article>
           <article class="contribution reveal">
-            <span class="contribution-number">02</span>
+            <span class="contribution-index">02</span>
+            <div class="contribution-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M24 6v7M24 35v7M6 24h7M35 24h7M11.3 11.3l5 5M31.7 31.7l5 5M36.7 11.3l-5 5M16.3 31.7l-5 5"/><circle cx="24" cy="24" r="10"/></svg>
+            </div>
             <h3>USI-Brain + UPR</h3>
-            <p>Adapts an 8B vision-language model to degraded underwater inputs through structured supervision and feature rectification.</p>
+            <p>Adapts Qwen3-VL-8B-Instruct with structured supervision and a prior-guided module that rectifies degraded visual features.</p>
           </article>
           <article class="contribution reveal">
-            <span class="contribution-number">03</span>
+            <span class="contribution-index">03</span>
+            <div class="contribution-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M7 39h34M11 35V22M20 35V12M29 35V18M38 35V8"/></svg>
+            </div>
             <h3>USI-Bench</h3>
-            <p>Measures 15 tasks across five capability groups with 6,525 independently audited, held-out QA pairs.</p>
+            <p>Evaluates five connected capability groups through 6,525 audited questions and 15 fine-grained task metrics.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-ink" id="method">
-      <div class="section-shell">
-        <div class="section-kicker reveal">02 / Method</div>
-        <div class="section-heading section-heading-wide reveal">
-          <h2>From scattered resources<br>to structured intelligence.</h2>
-          <p>The method couples supervision construction with visual-feature adaptation: HUE prepares visual evidence, geometry-assisted QA exposes 3D relationships, and UPR corrects visual tokens inside the model.</p>
+    <section class="paper-section method-section" id="method">
+      <div class="container wide">
+        <div class="section-heading reveal">
+          <span class="section-label">Approach</span>
+          <h2>Method</h2>
+          <p class="section-intro">The framework couples supervision construction with visual-feature adaptation. Geometry is used during data construction; inference only requires raw images and questions.</p>
         </div>
 
-        <figure class="figure-card figure-card-light reveal">
-          <div class="figure-toolbar">
-            <span>Spatial data engine</span>
-            <span>Figure 1</span>
-          </div>
-          <img src="assets/Figure%201%20Overview%20of%20the%20underwater%20spatial%20data%20engine.png" alt="Pipeline of the underwater spatial data engine from source data and enhancement to 2D and 3D QA generation, capability organization, and expert filtering." loading="lazy">
-          <figcaption>Heterogeneous inputs are enhanced, lifted into 2D and 3D spatial supervision, organized into five capability groups, and reviewed by experts.</figcaption>
-        </figure>
-
-        <div class="method-points">
-          <article class="method-point reveal">
+        <div class="method-summary reveal">
+          <article>
             <span>HUE</span>
-            <h3>Restore the evidence</h3>
-            <p>Hybrid Underwater Enhancement balances learned color correction and local detail restoration with a pixel-wise fusion map.</p>
+            <h3>Restore visual evidence</h3>
+            <p>Hybrid Underwater Enhancement combines color correction and detail restoration with a learned pixel-wise fusion map.</p>
           </article>
-          <article class="method-point reveal">
+          <article>
             <span>GeoQA</span>
-            <h3>Lift pixels into geometry</h3>
-            <p>Depth samples and reconstructed object boxes support questions about ordering, occlusion, distance, viewpoint, and stratification.</p>
+            <h3>Lift objects into geometry</h3>
+            <p>Depth and reconstructed object boxes create supervision for ordering, occlusion, distance, viewpoint, and stratification.</p>
           </article>
-          <article class="method-point reveal">
-            <span>Review</span>
-            <h3>Keep supervision grounded</h3>
-            <p>Expert review checks visual evidence, question-answer consistency, localization annotations, and redundancy before training.</p>
+          <article>
+            <span>UPR</span>
+            <h3>Rectify visual features</h3>
+            <p>Underwater priors predict bias and gain, while a learned gate controls the residual update applied to each visual token.</p>
           </article>
         </div>
 
-        <figure class="figure-card figure-card-light reveal">
-          <div class="figure-toolbar">
-            <span>Underwater Prior-guided Rectifier</span>
-            <span>Figure 2</span>
-          </div>
-          <img src="assets/Figure%202%20Overview%20of%20UPR.png" alt="USI-Brain architecture and Underwater Prior-guided Rectifier with bias, gain, and gated update components." loading="lazy">
-          <figcaption>UPR estimates scattering-related bias and absorption-recovery gain, then applies a gated residual correction while retaining both raw and rectified visual tokens.</figcaption>
+        <figure class="paper-figure reveal">
+          <img src="assets/Figure%202%20Overview%20of%20UPR.png" alt="Architecture of USI-Brain and the Underwater Prior-guided Rectifier." width="2030" height="1014" loading="lazy">
+          <figcaption><strong>Figure 2.</strong> UPR estimates scattering-related bias and absorption-recovery gain, then rectifies visual tokens through gated residual fusion while retaining both raw and corrected features.</figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="section section-light" id="benchmark">
-      <div class="section-shell">
-        <div class="section-kicker reveal">03 / Benchmark</div>
-        <div class="benchmark-intro">
-          <div class="section-heading reveal">
-            <h2>One benchmark.<br>Five connected abilities.</h2>
-          </div>
-          <div class="benchmark-copy reveal">
-            <p>USI-Bench contains <strong>6,525 held-out QA pairs</strong> spanning object grounding, image-plane relations, 3D structure, degradation-aware perception, and ecological understanding.</p>
-            <p>Fifteen independent annotators audited every benchmark item. Uncertain and incorrect entries identified in the audit were revised before evaluation.</p>
-          </div>
+    <section class="paper-section benchmark-section" id="benchmark">
+      <div class="container wide">
+        <div class="section-heading reveal">
+          <span class="section-label">Evaluation</span>
+          <h2>USI-Bench</h2>
+          <p class="section-intro">A diagnostic benchmark for the spatial and semantic abilities required to understand complex underwater scenes.</p>
         </div>
 
-        <div class="capability-row reveal" role="list" aria-label="USI-Bench capability groups">
-          <div role="listitem"><span>B1</span><p>Object grounding<br>&amp; understanding</p><strong>38.7%</strong></div>
-          <div role="listitem"><span>B2</span><p>2D relations<br>&amp; layout</p><strong>17.5%</strong></div>
-          <div role="listitem"><span>B3</span><p>3D depth<br>&amp; stratification</p><strong>20.0%</strong></div>
-          <div role="listitem"><span>B4</span><p>Degradation<br>&amp; perception</p><strong>9.5%</strong></div>
-          <div role="listitem"><span>B5</span><p>Scene<br>&amp; ecology</p><strong>14.4%</strong></div>
+        <div class="capabilities reveal" role="list" aria-label="USI-Bench capability groups">
+          <div role="listitem"><span>B1</span><strong>38.7%</strong><p>Object Grounding<br>&amp; Understanding</p></div>
+          <div role="listitem"><span>B2</span><strong>17.5%</strong><p>2D Relations<br>&amp; Layout</p></div>
+          <div role="listitem"><span>B3</span><strong>20.0%</strong><p>3D Depth<br>&amp; Stratification</p></div>
+          <div role="listitem"><span>B4</span><strong>9.5%</strong><p>Degradation<br>&amp; Perception</p></div>
+          <div role="listitem"><span>B5</span><strong>14.4%</strong><p>Scene<br>&amp; Ecology</p></div>
         </div>
 
         <div class="benchmark-figures">
-          <figure class="benchmark-figure reveal">
-            <img src="assets/Figure%203_1%20Benchmark%20overview.png" alt="USI-Bench composition with examples for object grounding and 2D relations." loading="lazy">
+          <figure class="paper-figure reveal">
+            <img src="assets/Figure%203_1%20Benchmark%20overview.png" alt="USI-Bench composition with examples for object grounding and 2D relations." width="1519" height="734" loading="lazy">
           </figure>
-          <figure class="benchmark-figure reveal">
-            <img src="assets/Figure%203_2%20Benchmark%20overview.png" alt="USI-Bench examples for 3D depth, degradation-aware perception, and scene ecology." loading="lazy">
+          <figure class="paper-figure reveal">
+            <img src="assets/Figure%203_2%20Benchmark%20overview.png" alt="USI-Bench examples for 3D depth, degradation-aware perception, and scene ecology." width="1510" height="734" loading="lazy">
           </figure>
         </div>
+        <p class="combined-caption reveal"><strong>Figure 3.</strong> Composition and representative question-answer examples across the five USI-Bench capability groups.</p>
       </div>
     </section>
 
-    <section class="section section-results" id="results">
-      <div class="section-shell">
-        <div class="section-kicker reveal">04 / Results</div>
-        <div class="results-lead">
-          <div class="section-heading reveal">
-            <h2>Strong spatial gains,<br>inside and outside the benchmark.</h2>
-          </div>
-          <p class="reveal">On USI-Bench, USI-Brain improves over its Qwen3-VL-8B-Instruct backbone on 12 of 15 metrics. Adding UPR improves 13 of 15, with the largest gain in scene description.</p>
+    <section class="paper-section results-section" id="results">
+      <div class="container wide">
+        <div class="section-heading reveal">
+          <span class="section-label">Experiments</span>
+          <h2>Results</h2>
+          <p class="section-intro">USI-Brain improves spatial understanding on its internal diagnostic benchmark and generalizes across three external underwater evaluation suites.</p>
         </div>
 
-        <div class="result-cards">
-          <article class="result-card reveal">
-            <span>USI-Brain</span>
-            <strong>+5.76</strong>
-            <p>mean points across 15 USI-Bench tasks</p>
-          </article>
-          <article class="result-card result-card-accent reveal">
-            <span>USI-Brain + UPR</span>
-            <strong>+7.63</strong>
-            <p>mean points across 15 USI-Bench tasks</p>
-          </article>
-          <article class="result-card reveal">
-            <span>Scene description</span>
-            <strong>+18.0</strong>
-            <p>incremental gain from UPR under matched training data</p>
-          </article>
+        <div class="result-highlights reveal">
+          <article><span>USI-Brain</span><strong>+5.76</strong><p>mean points over the Qwen3-VL-8B-Instruct backbone</p></article>
+          <article class="featured"><span>USI-Brain + UPR</span><strong>+7.63</strong><p>mean points across all 15 USI-Bench tasks</p></article>
+          <article><span>Scene description</span><strong>+18.0</strong><p>incremental points from UPR under matched training data</p></article>
         </div>
 
-        <div class="external-results">
-          <div class="external-figure reveal">
-            <img src="assets/Figure%204.png" alt="Best or joint-best metric ratio for USI-Brain across NautData, UWBench VQA, UWBench Referring, and MarineEval." loading="lazy">
-          </div>
-          <div class="external-copy reveal">
-            <p class="mini-label">External evaluation</p>
-            <h3>28 of 32 metrics<br>best or joint-best.</h3>
-            <p>USI-Brain leads across different output formats, including visual question answering, captioning, grounding, detection, spatial relations, and numerical estimation.</p>
+        <div class="external-grid">
+          <figure class="paper-figure reveal">
+            <img src="assets/Figure%204.png" alt="Best or joint-best metric ratio across external benchmarks." width="1446" height="603" loading="lazy">
+            <figcaption><strong>Figure 4.</strong> Percentage of reported metrics on which USI-Brain achieves the best or joint-best score in each comparison pool.</figcaption>
+          </figure>
+
+          <div class="external-summary reveal">
+            <span class="summary-label">External benchmarks</span>
+            <h3>28 / 32</h3>
+            <p>best or joint-best metrics, with a mean signed advantage of <strong>+9.99 points</strong> over the strongest baseline for each metric.</p>
             <dl>
               <div><dt>NautData</dt><dd>7 / 7</dd></div>
               <div><dt>UWBench VQA</dt><dd>6 / 8</dd></div>
@@ -254,19 +248,26 @@
             </dl>
           </div>
         </div>
+
+        <div class="finding-strip reveal">
+          <span>What the ablations show</span>
+          <p><strong>Geometry-assisted QA</strong> strengthens depth and ordering.</p>
+          <p><strong>HUE-derived supervision</strong> improves localization and structural perception.</p>
+          <p><strong>UPR</strong> contributes most strongly to global scene description.</p>
+        </div>
       </div>
     </section>
 
-    <section class="section section-citation" id="citation">
-      <div class="section-shell citation-grid">
+    <section class="paper-section citation-section" id="citation">
+      <div class="container narrow">
         <div class="section-heading reveal">
-          <div class="section-kicker">05 / Citation</div>
-          <h2>Build on<br>USI-Brain.</h2>
-          <p>If this work supports your research, please cite the paper and follow the project repository for the release of model weights and USI-Bench.</p>
+          <span class="section-label">Reference</span>
+          <h2>Citation</h2>
+          <p class="section-intro">If you find this work useful, please consider citing the paper.</p>
         </div>
 
-        <div class="citation-card reveal">
-          <div class="citation-card-head">
+        <div class="citation-box reveal">
+          <div class="citation-head">
             <span>BibTeX</span>
             <button id="copy-citation" type="button" data-copy-label="Copy" data-copied-label="Copied">Copy</button>
           </div>
@@ -283,21 +284,18 @@
   </main>
 
   <footer class="site-footer">
-    <div>
-      <a class="brand brand-footer" href="#top">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32"><path d="M4 17.2c5.1-6.9 10.8-8.7 17.1-5.4 2.4 1.3 4.7 1.5 6.9.6-2.9 5.8-7.2 8.7-13 8.7-4.2 0-7.5-1.3-10-3.9Z"/></svg>
-        </span>
-        <span>USI-Brain</span>
-      </a>
-      <p>Underwater Spatial Intelligence</p>
+    <div class="footer-inner">
+      <div>
+        <a class="footer-brand" href="#top">USI-Brain</a>
+        <p>Underwater Spatial Intelligence</p>
+      </div>
+      <div class="footer-links">
+        <a href="assets/USI_Brain__arxiv_.pdf" target="_blank" rel="noopener">Paper</a>
+        <a href="https://github.com/SKY-Zhu-91/USI-Brain" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:daweizhao@hrbeu.edu.cn">Contact</a>
+      </div>
+      <p class="copyright">© <span id="year">2026</span> USI-Brain Research Team</p>
     </div>
-    <div class="footer-links">
-      <a href="assets/USI_Brain__arxiv_.pdf" target="_blank" rel="noopener">Paper</a>
-      <a href="https://github.com/SKY-Zhu-91/USI-Brain" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:daweizhao@hrbeu.edu.cn">Contact</a>
-    </div>
-    <p class="footer-note">© <span id="year">2026</span> USI-Brain research team</p>
   </footer>
 
   <script src="js/app.js"></script>

@@ -97,5 +97,14 @@
   copyButton.addEventListener('click', copyCitation);
   document.querySelector('#year').textContent = new Date().getFullYear();
 
+  const scrollToInitialHash = () => {
+    if (!window.location.hash) return;
+    const initialTarget = document.querySelector(window.location.hash);
+    if (initialTarget) initialTarget.scrollIntoView({ behavior: 'auto' });
+  };
+
+  if (document.readyState === 'complete') scrollToInitialHash();
+  else window.addEventListener('load', scrollToInitialHash, { once: true });
+
   updatePageState();
 })();
