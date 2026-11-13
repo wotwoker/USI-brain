@@ -3,14 +3,12 @@
   const tabs = [...document.querySelectorAll('[data-chart]')];
   const titleElement = document.querySelector('#chart-title');
   const noteElement = document.querySelector('#chart-note');
+  const chartStatus = document.querySelector('#chart-status');
+  const table = document.querySelector('#result-table');
+  const tableTitle = document.querySelector('#result-table-title');
+  const tableNote = document.querySelector('#result-table-note');
 
-  if (!chartElement || !tabs.length) return;
-
-  if (!window.echarts) {
-    chartElement.classList.add('chart-unavailable');
-    chartElement.textContent = 'The interactive chart could not be loaded.';
-    return;
-  }
+  if (!chartElement || !tabs.length || !chartStatus || !table || !tableTitle || !tableNote) return;
 
   const datasets = {
     overview: {
@@ -20,6 +18,10 @@
       metrics: ['NautData', 'UWBench VQA', 'UWBench Referring', 'MarineEval'],
       values: [100, 75, 100, 83.3],
       counts: ['7 / 7', '6 / 8', '5 / 5', '10 / 12'],
+      soleBest: [7, 6, 5, 9],
+      jointBest: [0, 0, 0, 1],
+      totals: [7, 8, 5, 12],
+      tableNote: 'Sole-best and joint-best counts from the paper comparison pools.',
     },
     usibench: {
       title: 'USI-Bench task-level results',
@@ -81,9 +83,25 @@
   };
 
   const palette = ['#0a7884', '#cf634b', '#93a8ad', '#f2c95c', '#7b8d93', '#b7c5c8'];
-  const chart = window.echarts.init(chartElement, null, { renderer: 'canvas' });
   let activeKey = 'overview';
   let compact = window.matchMedia('(max-width: 720px)').matches;
+  let chart = null;
+
+  chartElement.style.width = '100%';
+  chartElement.style.height = compact ? '480px' : '510px';
+
+  if (window.echarts) {
+    try {
+      chart = window.echarts.init(chartElement, null, { renderer: 'canvas' });
+    } catch {
+      chart = null;
+    }
+  }
+
+  if (!chart) {
+    chartElement.hidden = true;
+    chartStatus.hidden = false;
+  }
 
   const sharedTooltip = {
     trigger: 'axis',
@@ -212,12 +230,66 @@
     };
   };
 
+  const formatValue = (value) => {
+    if (typeof value !== 'number') return String(value);
+    return value.toFixed(2).replace(/\.00$/, '').replace(/(\.\d)0$/, '$1');
+  };
+
+  const appendCell = (row, value, isHeader = false, scope = '') => {
+    const cell = document.createElement(isHeader ? 'th' : 'td');
+    if (scope) cell.scope = scope;
+    cell.textContent = value;
+    row.appendChild(cell);
+  };
+
+  const renderTable = (dataset) => {
+    const caption = table.querySelector('caption') || table.createCaption();
+    const thead = table.tHead || table.createTHead();
+    const tbody = table.tBodies[0] || table.createTBody();
+    caption.textContent = dataset.title;
+    tableTitle.textContent = dataset.title;
+    tableNote.textContent = dataset.tableNote || dataset.note;
+    thead.replaceChildren();
+    tbody.replaceChildren();
+
+    const headerRow = document.createElement('tr');
+
+    if (dataset.type === 'overview') {
+      ['Benchmark', 'Sole best', 'Joint best', 'Total', 'Coverage'].forEach((label) => appendCell(headerRow, label, true, 'col'));
+      thead.appendChild(headerRow);
+
+      dataset.metrics.forEach((metric, index) => {
+        const row = document.createElement('tr');
+        appendCell(row, metric, true, 'row');
+        appendCell(row, dataset.soleBest[index]);
+        appendCell(row, dataset.jointBest[index]);
+        appendCell(row, dataset.totals[index]);
+        appendCell(row, `${formatValue(dataset.values[index])}%`);
+        tbody.appendChild(row);
+      });
+      return;
+    }
+
+    appendCell(headerRow, 'Model', true, 'col');
+    dataset.metrics.forEach((metric) => appendCell(headerRow, metric, true, 'col'));
+    thead.appendChild(headerRow);
+
+    dataset.series.forEach((series) => {
+      const row = document.createElement('tr');
+      if (series.name.startsWith('USI-Brain')) row.classList.add('ours-row');
+      appendCell(row, series.name, true, 'row');
+      series.data.forEach((value) => appendCell(row, formatValue(value)));
+      tbody.appendChild(row);
+    });
+  };
+
   const render = (key) => {
     const dataset = datasets[key];
     activeKey = key;
     titleElement.textContent = dataset.title;
     noteElement.textContent = dataset.note;
     chartElement.setAttribute('aria-label', `${dataset.title}. ${dataset.note}`);
+    renderTable(dataset);
 
     tabs.forEach((tab) => {
       const selected = tab.dataset.chart === key;
@@ -227,7 +299,16 @@
       if (selected) chartElement.setAttribute('aria-labelledby', tab.id);
     });
 
-    chart.setOption(dataset.type === 'overview' ? overviewOption(dataset) : benchmarkOption(dataset), true);
+    if (chart) {
+      try {
+        chartElement.hidden = false;
+        chartStatus.hidden = true;
+        chart.setOption(dataset.type === 'overview' ? overviewOption(dataset) : benchmarkOption(dataset), true);
+      } catch {
+        chartElement.hidden = true;
+        chartStatus.hidden = false;
+      }
+    }
   };
 
   tabs.forEach((tab, index) => {
@@ -244,15 +325,16 @@
 
   const resize = () => {
     const nextCompact = window.matchMedia('(max-width: 720px)').matches;
-    chart.resize();
+    chartElement.style.height = nextCompact ? '480px' : '510px';
+    if (chart) chart.resize();
     if (nextCompact !== compact) {
       compact = nextCompact;
       render(activeKey);
     }
   };
 
-  if ('ResizeObserver' in window) new ResizeObserver(resize).observe(chartElement);
-  else window.addEventListener('resize', resize, { passive: true });
+  if (chart && 'ResizeObserver' in window) new ResizeObserver(resize).observe(chartElement);
+  else if (chart) window.addEventListener('resize', resize, { passive: true });
 
   render(activeKey);
 })();

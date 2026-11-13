@@ -9,7 +9,7 @@
   <meta property="og:description" content="Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling">
   <meta property="og:image" content="assets/Figure%201%20Overview%20of%20the%20underwater%20spatial%20data%20engine.png">
   <title>USI-Brain | Underwater Spatial Intelligence</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261113-2">
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
@@ -101,9 +101,29 @@
       </div>
 
       <div class="container wide">
+        <div class="challenge-grid reveal" aria-label="Underwater spatial reasoning challenges">
+          <article>
+            <span>01</span>
+            <h3>Appearance is unreliable</h3>
+            <p>Wavelength-dependent attenuation shifts color, while backscatter, blur, and low illumination erase boundaries and texture.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Geometry is fragmented</h3>
+            <p>Existing resources separate images, instance annotations, and depth, leaving object-linked spatial supervision incomplete.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Understanding must be joint</h3>
+            <p>Real underwater tasks combine localization, 2D relations, depth, degradation awareness, and ecological context.</p>
+          </article>
+        </div>
+
         <figure class="paper-figure hero-figure reveal">
-          <img src="assets/Figure%201%20Overview%20of%20the%20underwater%20spatial%20data%20engine.png" alt="Overview of the underwater spatial data engine." width="2019" height="658" loading="eager">
-          <figcaption><strong>Figure 1.</strong> The underwater spatial data engine enhances heterogeneous inputs, generates 2D and geometry-assisted 3D QA, organizes them into five capability groups, and applies expert filtering.</figcaption>
+          <a class="figure-image" href="assets/Figure%201%20Overview%20of%20the%20underwater%20spatial%20data%20engine.png" target="_blank" rel="noopener" aria-label="Open Figure 1 at full resolution">
+            <img src="assets/Figure%201%20Overview%20of%20the%20underwater%20spatial%20data%20engine.png" alt="Overview of the underwater spatial data engine." width="2019" height="658" loading="eager" decoding="async">
+          </a>
+          <figcaption><strong>Figure 1.</strong> The underwater spatial data engine enhances heterogeneous inputs, generates 2D and geometry-assisted 3D QA, organizes them into five capability groups, and applies expert filtering. Select the figure to inspect it at full resolution.</figcaption>
         </figure>
 
         <div class="key-stats reveal" aria-label="Key project statistics">
@@ -129,7 +149,7 @@
               <svg viewBox="0 0 48 48"><path d="M7 11h34v25H7zM13 17h10v7H13zM27 17h8M27 22h8M13 29h22"/></svg>
             </div>
             <h3>Spatial Data Engine</h3>
-            <p>Connects enhanced underwater imagery, instance annotations, and geometric cues into a unified, quality-controlled training corpus.</p>
+            <p>Connects enhanced imagery, instance annotations, depth, and reconstructed scenes into <strong>4.27M quality-controlled QA pairs</strong> spanning five capability groups.</p>
           </article>
           <article class="contribution reveal">
             <span class="contribution-index">02</span>
@@ -137,7 +157,7 @@
               <svg viewBox="0 0 48 48"><path d="M24 6v7M24 35v7M6 24h7M35 24h7M11.3 11.3l5 5M31.7 31.7l5 5M36.7 11.3l-5 5M16.3 31.7l-5 5"/><circle cx="24" cy="24" r="10"/></svg>
             </div>
             <h3>USI-Brain + UPR</h3>
-            <p>Adapts Qwen3-VL-8B-Instruct with structured supervision and a prior-guided module that rectifies degraded visual features.</p>
+            <p>Adapts Qwen3-VL-8B-Instruct with structured supervision. UPR predicts underwater bias and gain, then applies a learned gated residual correction to visual tokens.</p>
           </article>
           <article class="contribution reveal">
             <span class="contribution-index">03</span>
@@ -145,7 +165,7 @@
               <svg viewBox="0 0 48 48"><path d="M7 39h34M11 35V22M20 35V12M29 35V18M38 35V8"/></svg>
             </div>
             <h3>USI-Bench</h3>
-            <p>Evaluates five connected capability groups through 6,525 audited questions and 15 fine-grained task metrics.</p>
+            <p>Measures five connected capabilities through <strong>6,525 held-out questions</strong>, 15 task metrics, and a complete audit by 15 independent annotators.</p>
           </article>
         </div>
       </div>
@@ -159,28 +179,43 @@
           <p class="section-intro">The framework couples supervision construction with visual-feature adaptation. Geometry is used during data construction; inference only requires raw images and questions.</p>
         </div>
 
+        <ol class="engine-pipeline reveal" aria-label="Five-stage spatial data engine">
+          <li><span>01</span><strong>Aggregate sources</strong><p>About 540K visual samples plus roughly 400 reconstructed Atlantis scenes.</p></li>
+          <li><span>02</span><strong>Enhance evidence</strong><p>HUE restores color, illumination, edges, and texture for supervision construction.</p></li>
+          <li><span>03</span><strong>Generate 2D QA</strong><p>Identity, attributes, locations, relations, visibility, and scene content.</p></li>
+          <li><span>04</span><strong>Lift into 3D</strong><p>Depth samples and reconstructed boxes support ordering, occlusion, distance, and viewpoint.</p></li>
+          <li><span>05</span><strong>Organize and review</strong><p>Five capability groups followed by expert selection, correction, and deduplication.</p></li>
+        </ol>
+
         <div class="method-summary reveal">
           <article>
             <span>HUE</span>
             <h3>Restore visual evidence</h3>
-            <p>Hybrid Underwater Enhancement combines color correction and detail restoration with a learned pixel-wise fusion map.</p>
+            <p>Degradation maps for color shift, scattering, and blur condition two paths: one corrects color and illumination, while the other restores local edges and texture. A learned pixel-wise map selects their balance at every location.</p>
           </article>
           <article>
             <span>GeoQA</span>
             <h3>Lift objects into geometry</h3>
-            <p>Depth and reconstructed object boxes create supervision for ordering, occlusion, distance, viewpoint, and stratification.</p>
+            <p>Object masks or boxes collect aligned depth samples. Camera intrinsics back-project them into 3D, where fitted object boxes provide supervision for depth, ordering, occlusion, distance, viewpoint, and stratification.</p>
           </article>
           <article>
             <span>UPR</span>
             <h3>Rectify visual features</h3>
-            <p>Underwater priors predict bias and gain, while a learned gate controls the residual update applied to each visual token.</p>
+            <p>A DINOv2 prior encoder estimates scattering-related bias and absorption-recovery gain. A learned gate controls the correction, then raw and rectified visual sequences are interleaved for the language model.</p>
           </article>
         </div>
 
         <figure class="paper-figure reveal">
-          <img src="assets/Figure%202%20Overview%20of%20UPR.png" alt="Architecture of USI-Brain and the Underwater Prior-guided Rectifier." width="2030" height="1014" loading="lazy">
-          <figcaption><strong>Figure 2.</strong> UPR estimates scattering-related bias and absorption-recovery gain, then rectifies visual tokens through gated residual fusion while retaining both raw and corrected features.</figcaption>
+          <a class="figure-image" href="assets/Figure%202%20Overview%20of%20UPR.png" target="_blank" rel="noopener" aria-label="Open Figure 2 at full resolution">
+            <img src="assets/Figure%202%20Overview%20of%20UPR.png" alt="Architecture of USI-Brain and the Underwater Prior-guided Rectifier." width="2030" height="1014" loading="lazy" decoding="async">
+          </a>
+          <figcaption><strong>Figure 2.</strong> UPR estimates scattering-related bias and absorption-recovery gain, then rectifies visual tokens through gated residual fusion. In the fixed 512×512 setting, the 256-token raw sequence and 256-token corrected sequence are interleaved into 512 visual tokens.</figcaption>
         </figure>
+
+        <aside class="inference-note reveal">
+          <span>Training supervision vs. inference</span>
+          <p>HUE, depth maps, fitted 3D boxes, and reconstructed scenes are used to build supervision offline. Both USI-Brain variants are evaluated on <strong>raw underwater images</strong>; no enhanced image or depth input is required at inference.</p>
+        </aside>
       </div>
     </section>
 
@@ -200,12 +235,22 @@
           <div role="listitem"><span>B5</span><strong>14.4%</strong><p>Scene<br>&amp; Ecology</p></div>
         </div>
 
+        <div class="benchmark-evidence reveal">
+          <article><strong>Source-level isolation</strong><p>Images, video frames, and all processed derivatives remain in the same split. Test sources from USI-Bench and all external benchmarks are excluded from training-QA construction.</p></article>
+          <article><strong>Duplicate screening</strong><p>Source IDs and QA links are checked alongside SHA-256 and perceptual hashes to reduce train–test leakage.</p></article>
+          <article><strong>Full human audit</strong><p>Fifteen independent annotators audited all 6,525 items. The initial 10% uncertain and 7% incorrect entries were revised before evaluation.</p></article>
+        </div>
+
         <div class="benchmark-figures">
           <figure class="paper-figure reveal">
-            <img src="assets/Figure%203_1%20Benchmark%20overview.png" alt="USI-Bench composition with examples for object grounding and 2D relations." width="1519" height="734" loading="lazy">
+            <a class="figure-image" href="assets/Figure%203_1%20Benchmark%20overview.png" target="_blank" rel="noopener" aria-label="Open the first half of Figure 3 at full resolution">
+              <img src="assets/Figure%203_1%20Benchmark%20overview.png" alt="USI-Bench composition with examples for object grounding and 2D relations." width="1519" height="734" loading="lazy" decoding="async">
+            </a>
           </figure>
           <figure class="paper-figure reveal">
-            <img src="assets/Figure%203_2%20Benchmark%20overview.png" alt="USI-Bench examples for 3D depth, degradation-aware perception, and scene ecology." width="1510" height="734" loading="lazy">
+            <a class="figure-image" href="assets/Figure%203_2%20Benchmark%20overview.png" target="_blank" rel="noopener" aria-label="Open the second half of Figure 3 at full resolution">
+              <img src="assets/Figure%203_2%20Benchmark%20overview.png" alt="USI-Bench examples for 3D depth, degradation-aware perception, and scene ecology." width="1510" height="734" loading="lazy" decoding="async">
+            </a>
           </figure>
         </div>
         <p class="combined-caption reveal"><strong>Figure 3.</strong> Composition and representative question-answer examples across the five USI-Bench capability groups.</p>
@@ -233,7 +278,7 @@
               <h3 id="chart-title">External benchmark coverage</h3>
               <p id="chart-note">Best or joint-best score within each paper comparison pool.</p>
             </div>
-            <p class="explorer-hint">Switch benchmarks and hover over the bars for exact values.</p>
+            <p class="explorer-hint">Switch benchmarks to update both the chart and the complete result table.</p>
           </div>
 
           <div class="chart-tabs" role="tablist" aria-label="Result datasets">
@@ -245,13 +290,39 @@
             <button id="tab-marine" type="button" role="tab" aria-selected="false" aria-controls="results-chart" data-chart="marine">MarineEval</button>
           </div>
 
-          <div id="results-chart" class="results-chart" role="tabpanel" aria-labelledby="tab-overview"></div>
+          <div class="chart-stage">
+            <div id="results-chart" class="results-chart" role="tabpanel" aria-labelledby="tab-overview"></div>
+            <p id="chart-status" class="chart-status" hidden>The chart could not be rendered. The complete values remain available in the table below.</p>
+          </div>
+
+          <div class="result-table-region">
+            <div class="result-table-heading">
+              <div><span>Reported values</span><strong id="result-table-title">External benchmark coverage</strong></div>
+              <p id="result-table-note">Sole-best and joint-best counts from the paper comparison pools.</p>
+            </div>
+            <div class="result-table-scroll" tabindex="0" aria-label="Scrollable result table">
+              <table id="result-table">
+                <caption class="sr-only">External benchmark coverage</caption>
+                <thead>
+                  <tr><th scope="col">Benchmark</th><th scope="col">Sole best</th><th scope="col">Joint best</th><th scope="col">Total</th><th scope="col">Coverage</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">NautData</th><td>7</td><td>0</td><td>7</td><td>100%</td></tr>
+                  <tr><th scope="row">UWBench VQA</th><td>6</td><td>0</td><td>8</td><td>75%</td></tr>
+                  <tr><th scope="row">UWBench Referring</th><td>5</td><td>0</td><td>5</td><td>100%</td></tr>
+                  <tr><th scope="row">MarineEval</th><td>9</td><td>1</td><td>12</td><td>83.3%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
           <noscript><p class="chart-fallback">Enable JavaScript to explore the benchmark results interactively.</p></noscript>
         </div>
 
         <div class="external-grid">
           <figure class="paper-figure reveal">
-            <img src="assets/Figure%204.png" alt="Best or joint-best metric ratio across external benchmarks." width="1446" height="603" loading="lazy">
+            <a class="figure-image" href="assets/Figure%204.png" target="_blank" rel="noopener" aria-label="Open Figure 4 at full resolution">
+              <img src="assets/Figure%204.png" alt="Best or joint-best metric ratio across external benchmarks." width="1446" height="603" loading="lazy" decoding="async">
+            </a>
             <figcaption><strong>Figure 4.</strong> Percentage of reported metrics on which USI-Brain achieves the best or joint-best score in each comparison pool.</figcaption>
           </figure>
 
@@ -268,12 +339,16 @@
           </div>
         </div>
 
-        <div class="finding-strip reveal">
-          <span>What the ablations show</span>
-          <p><strong>Geometry-assisted QA</strong> strengthens depth and ordering.</p>
-          <p><strong>HUE-derived supervision</strong> improves localization and structural perception.</p>
-          <p><strong>UPR</strong> contributes most strongly to global scene description.</p>
+        <div class="ablation-grid reveal">
+          <article><span>Geometry-assisted QA</span><strong>+4.8 Depth · +6.1 Ordering</strong><p>Object-linked geometry also adds 3.8 points in relation reasoning and 2.9 in distance estimation when UPR is disabled.</p></article>
+          <article><span>HUE-derived supervision</span><strong>Improves all 15 tasks</strong><p>Under matched GeoQA training, HUE adds 2.6 points in grounding, 3.3 in structural perception, and 2.2 in scene description—even though evaluation uses raw images.</p></article>
+          <article><span>Underwater Prior-guided Rectifier</span><strong>+18.0 Scene description</strong><p>With the same 4.27M-QA corpus, UPR also adds 1.3 points in grounding, 1.1 in depth, and 0.9 in ordering.</p></article>
         </div>
+
+        <aside class="limitations reveal">
+          <span>Current frontier</span>
+          <p>Distance estimation and environment recognition remain slightly below the Qwen3-VL-8B-Instruct backbone, while foreground/background macro-F1 reaches 22.7. These tasks identify the clearest priorities for broader supervision and more complete spatial evaluation.</p>
+        </aside>
       </div>
     </section>
 
@@ -316,8 +391,8 @@
     </div>
   </footer>
 
-  <script src="vendor/echarts.min.js"></script>
-  <script src="js/results.js"></script>
-  <script src="js/app.js"></script>
+  <script src="vendor/echarts.min.js?v=5.6.0"></script>
+  <script src="js/results.js?v=20261113-2"></script>
+  <script src="js/app.js?v=20261113-2"></script>
 </body>
 </html>
