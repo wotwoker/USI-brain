@@ -67,13 +67,9 @@
         <p class="author-notes"><sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>†</sup> Project leader &nbsp;&nbsp; <sup>‡</sup> Corresponding author</p>
 
         <div class="paper-links" aria-label="Project links">
-          <a class="paper-link" href="assets/USI_Brain__arxiv_.pdf" target="_blank" rel="noopener">
+          <a class="paper-link" href="https://arxiv.org/abs/2611.06040" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4V22H6V2.5Zm8 0v4h4M9 12h6M9 16h6"/></svg>
             Paper
-          </a>
-          <a class="paper-link" href="https://github.com/SKY-Zhu-91/USI-Brain" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 .9-4-2-5-2.5m10 5v-3.1c0-.9.3-1.6.8-2-2.7-.3-5.5-1.3-5.5-6a4.7 4.7 0 0 1 1.3-3.3 4.4 4.4 0 0 1 .1-3.3s1-.3 3.4 1.3a11.7 11.7 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3a4.4 4.4 0 0 1 .1 3.3 4.7 4.7 0 0 1 1.3 3.3c0 4.7-2.8 5.7-5.5 6 .5.4.8 1.2.8 2v3.1" transform="translate(-5)"/></svg>
-            Code
           </a>
           <a class="paper-link" href="#benchmark">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg>
@@ -230,6 +226,29 @@
           <article><span>Scene description</span><strong>+18.0</strong><p>incremental points from UPR under matched training data</p></article>
         </div>
 
+        <div class="results-explorer reveal">
+          <div class="explorer-header">
+            <div>
+              <span class="summary-label">Interactive result explorer</span>
+              <h3 id="chart-title">External benchmark coverage</h3>
+              <p id="chart-note">Best or joint-best score within each paper comparison pool.</p>
+            </div>
+            <p class="explorer-hint">Switch benchmarks and hover over the bars for exact values.</p>
+          </div>
+
+          <div class="chart-tabs" role="tablist" aria-label="Result datasets">
+            <button class="active" id="tab-overview" type="button" role="tab" aria-selected="true" aria-controls="results-chart" data-chart="overview">Overview</button>
+            <button id="tab-usibench" type="button" role="tab" aria-selected="false" aria-controls="results-chart" data-chart="usibench">USI-Bench</button>
+            <button id="tab-nautdata" type="button" role="tab" aria-selected="false" aria-controls="results-chart" data-chart="nautdata">NautData</button>
+            <button id="tab-uwbench" type="button" role="tab" aria-selected="false" aria-controls="results-chart" data-chart="uwbench">UWBench VQA</button>
+            <button id="tab-referring" type="button" role="tab" aria-selected="false" aria-controls="results-chart" data-chart="referring">Object Referring</button>
+            <button id="tab-marine" type="button" role="tab" aria-selected="false" aria-controls="results-chart" data-chart="marine">MarineEval</button>
+          </div>
+
+          <div id="results-chart" class="results-chart" role="tabpanel" aria-labelledby="tab-overview"></div>
+          <noscript><p class="chart-fallback">Enable JavaScript to explore the benchmark results interactively.</p></noscript>
+        </div>
+
         <div class="external-grid">
           <figure class="paper-figure reveal">
             <img src="assets/Figure%204.png" alt="Best or joint-best metric ratio across external benchmarks." width="1446" height="603" loading="lazy">
@@ -290,14 +309,15 @@
         <p>Underwater Spatial Intelligence</p>
       </div>
       <div class="footer-links">
-        <a href="assets/USI_Brain__arxiv_.pdf" target="_blank" rel="noopener">Paper</a>
-        <a href="https://github.com/SKY-Zhu-91/USI-Brain" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://arxiv.org/abs/2611.06040" target="_blank" rel="noopener">Paper</a>
         <a href="mailto:daweizhao@hrbeu.edu.cn">Contact</a>
       </div>
       <p class="copyright">© <span id="year">2026</span> USI-Brain Research Team</p>
     </div>
   </footer>
 
+  <script src="vendor/echarts.min.js"></script>
+  <script src="js/results.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
