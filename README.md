@@ -2,7 +2,7 @@
 
 **Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling**
 
-[Project Page](https://wotwoker.github.io/USI-brain/) · [Paper](https://arxiv.org/abs/2611.06040) · [🤗 Hugging Face](https://huggingface.co/USI-Brain)
+[Project Page](https://wotwoker.github.io/USI-brain/) · [Paper](https://arxiv.org/abs/2611.06040) · [Code](https://github.com/SKY-Zhu-91/USI-Brain) · [🤗 Hugging Face](https://huggingface.co/USI-Brain)
 
 USI-Brain is a vision-language model designed for underwater spatial intelligence. It learns to locate and understand objects, reason about 2D and 3D spatial relationships, perceive degraded underwater scenes, and interpret ecological context.
 
