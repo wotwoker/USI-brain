@@ -27,7 +27,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 17px;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header) + 18px);
 }
