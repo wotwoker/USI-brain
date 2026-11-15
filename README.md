@@ -1,34 +1,45 @@
-# USI-Brain
+# 🌊 USI-Brain
 
 **Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling**
 
-[Project Page](https://wotwoker.github.io/USI-brain/) · [Paper](https://arxiv.org/abs/2611.06040) · [Code](https://github.com/SKY-Zhu-91/USI-Brain) · [🤗 Hugging Face](https://huggingface.co/USI-Brain)
+[🌐 Project Page](https://wotwoker.github.io/USI-brain/) · [📄 Paper](https://arxiv.org/abs/2611.06040) · [🗂️ Project Repository](https://github.com/wotwoker/USI-brain) · [💻 Code](https://github.com/SKY-Zhu-91/USI-Brain) · [🤗 Hugging Face](https://huggingface.co/USI-Brain)
 
 USI-Brain is a vision-language model designed for underwater spatial intelligence. It learns to locate and understand objects, reason about 2D and 3D spatial relationships, perceive degraded underwater scenes, and interpret ecological context.
 
 The project introduces a spatial data engine that connects enhanced underwater imagery with object-level geometry. Through 2D and geometry-assisted question generation, capability-based organization, and expert filtering, the engine produces **4.27 million spatial QA pairs** for model training.
 
-## Highlights
+## 📢 News & Release Schedule
 
-- **USI-Brain:** an underwater vision-language model adapted from Qwen3-VL-8B-Instruct.
-- **UPR:** an Underwater Prior-guided Rectifier that applies gated corrections to visual features.
-- **USI-Bench:** 6,525 held-out QA pairs covering five underwater spatial-intelligence capabilities.
-- **Strong performance:** best or joint-best results on 28 of 32 metrics across NautData, UWBench, and MarineEval.
+- [x] **2026.11.05** — 📄 Paper released on [arXiv](https://arxiv.org/abs/2611.06040).
+- [x] **2026.11.15** — 🤗 Model weights released on [Hugging Face](https://huggingface.co/USI-Brain).
+- [ ] **2026.11.24 · Planned** — 💻 Code release in the [USI-Brain code repository](https://github.com/SKY-Zhu-91/USI-Brain).
+- [ ] **2026.11.24 · Planned** — 📊 USI-Bench release.
 
-## Five Capability Groups
+> 🚀 **Coming soon:** Code and USI-Bench are scheduled for release on **November 24, 2026**. Stay tuned!
 
-1. Object Grounding & Understanding
-2. 2D Relations & Layout
-3. 3D Depth & Stratification
-4. Degradation-aware Perception
-5. Scene & Ecological Reasoning
+## ✨ Highlights
 
-## Authors
+- 🧠 **USI-Brain:** an underwater vision-language model adapted from Qwen3-VL-8B-Instruct.
+- 🔧 **UPR:** an Underwater Prior-guided Rectifier that applies gated corrections to visual features.
+- 📊 **USI-Bench:** 6,525 held-out QA pairs covering five underwater spatial-intelligence capabilities.
+- 🏆 **Strong performance:** best or joint-best results on 28 of 32 metrics across NautData, UWBench, and MarineEval.
+
+## 🧭 Five Capability Groups
+
+1. 🎯 **Object Grounding & Understanding**
+2. 📐 **2D Relations & Layout**
+3. 🧊 **3D Depth & Stratification**
+4. 🌫️ **Degradation-aware Perception**
+5. 🐠 **Scene & Ecological Reasoning**
+
+## 👥 Authors
 
 Zhiliang Zhu, Zhiqiang Zhao, Xie'an Jiang, Yingxin Lai, Kangye Zheng, and Dawei Zhao.
 
-Harbin Engineering University · Xiamen University
+🏫 Harbin Engineering University · Xiamen University
 
-## About This Repository
+## 📁 About This Repository
 
 This repository contains the static project page for USI-Brain, including the paper, figures, responsive styles, and lightweight browser interactions. The website is implemented with plain HTML, CSS, and JavaScript and is hosted with GitHub Pages.
+
+Research code will be released separately in the [USI-Brain code repository](https://github.com/SKY-Zhu-91/USI-Brain). Model weights are available through our [Hugging Face organization](https://huggingface.co/USI-Brain).
