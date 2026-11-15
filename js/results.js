@@ -110,7 +110,7 @@
     borderColor: 'rgba(85, 207, 231, 0.32)',
     borderWidth: 1,
     padding: [10, 12],
-    textStyle: { color: '#edf7ff', fontSize: 13 },
+    textStyle: { color: '#edf7ff', fontSize: 14 },
     extraCssText: 'box-shadow: 0 14px 36px rgba(0, 4, 12, 0.42); border-radius: 8px;',
     axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(66, 209, 230, 0.07)' } },
   };
@@ -131,7 +131,7 @@
       max: 100,
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: '#9cb1c6', fontSize: 12, formatter: '{value}%' },
+      axisLabel: { color: '#9cb1c6', fontSize: 13, formatter: '{value}%' },
       splitLine: { lineStyle: { color: 'rgba(120, 166, 204, 0.14)' } },
     },
     yAxis: {
@@ -140,7 +140,7 @@
       data: dataset.metrics,
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: '#d7e4ef', fontWeight: 650, fontSize: compact ? 11 : 13 },
+      axisLabel: { color: '#d7e4ef', fontWeight: 650, fontSize: compact ? 12 : 14 },
     },
     series: [{
       name: 'Best / joint-best',
@@ -164,7 +164,7 @@
         show: true,
         position: 'right',
         color: '#79e5f2',
-        fontSize: compact ? 11 : 13,
+        fontSize: compact ? 12 : 14,
         fontWeight: 750,
         formatter: (item) => dataset.counts[item.dataIndex],
       },
@@ -187,10 +187,10 @@
         itemWidth: 12,
         itemHeight: 7,
         itemGap: 18,
-        textStyle: { color: '#afc2d3', fontSize: 12 },
+        textStyle: { color: '#afc2d3', fontSize: 13 },
         pageIconColor: '#42d1e6',
         pageIconInactiveColor: '#456078',
-        pageTextStyle: { color: '#9cb1c6', fontSize: 12 },
+        pageTextStyle: { color: '#9cb1c6', fontSize: 13 },
       },
       grid: { left: compact ? 44 : 60, right: compact ? 18 : 32, top: 74, bottom: needsZoom ? 112 : 88 },
       xAxis: {
@@ -200,7 +200,7 @@
         axisTick: { show: false },
         axisLabel: {
           color: '#a9bdcf',
-          fontSize: compact ? 10 : 11,
+          fontSize: compact ? 11 : 12,
           interval: 0,
           rotate: compact ? 38 : 24,
           margin: 15,
@@ -213,7 +213,7 @@
         max: 100,
         axisLine: { show: false },
         axisTick: { show: false },
-        axisLabel: { color: '#9cb1c6', fontSize: 11 },
+        axisLabel: { color: '#9cb1c6', fontSize: 12 },
         splitLine: { lineStyle: { color: 'rgba(120, 166, 204, 0.14)' } },
       },
       dataZoom: needsZoom ? [

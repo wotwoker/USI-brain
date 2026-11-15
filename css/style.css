@@ -27,6 +27,7 @@
 }
 
 html {
+  font-size: 18px;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header) + 18px);
 }
@@ -40,7 +41,7 @@ body {
     var(--paper);
   background-attachment: fixed;
   font-family: var(--sans);
-  font-size: 17px;
+  font-size: 1rem;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -433,7 +434,7 @@ button {
 }
 
 .paper-section {
-  padding: clamp(85px, 9vw, 126px) 24px;
+  padding: clamp(56px, 5vw, 72px) 24px;
   position: relative;
 }
 
@@ -451,8 +452,8 @@ button {
 }
 
 .section-heading {
-  max-width: 880px;
-  margin: 0 auto 50px;
+  max-width: 920px;
+  margin: 0 auto 38px;
   text-align: center;
 }
 
@@ -477,27 +478,27 @@ button {
 }
 
 .section-intro {
-  max-width: 740px;
-  margin: 18px auto 0;
+  max-width: 790px;
+  margin: 14px auto 0;
   color: var(--muted);
   font-size: 1.06rem;
   line-height: 1.72;
 }
 
 .abstract-section {
-  padding-bottom: 105px;
+  padding-bottom: 72px;
 }
 
 .abstract-copy {
   color: var(--ink);
   font-family: var(--serif);
   font-size: 1.16rem;
-  line-height: 1.78;
+  line-height: 1.72;
   text-align: justify;
 }
 
 .abstract-copy p {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
 }
 
 .abstract-copy strong {
@@ -508,7 +509,7 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  margin-top: 58px;
+  margin-top: 38px;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: var(--line);
@@ -516,8 +517,8 @@ button {
 }
 
 .challenge-grid article {
-  min-height: 190px;
-  padding: 27px 28px;
+  min-height: 176px;
+  padding: 24px 26px;
   background: linear-gradient(145deg, rgba(16, 36, 58, 0.94), rgba(8, 23, 39, 0.96));
 }
 
@@ -530,7 +531,7 @@ button {
 }
 
 .challenge-grid h3 {
-  margin: 22px 0 9px;
+  margin: 17px 0 8px;
   color: var(--ink-strong);
   font-family: var(--serif);
   font-size: 1.3rem;
@@ -546,7 +547,7 @@ button {
 .paper-figure {
   width: fit-content;
   max-width: 100%;
-  margin: 54px auto 0;
+  margin: 40px auto 0;
   padding: 15px;
   border: 1px solid var(--line);
   border-radius: 13px;
@@ -612,11 +613,11 @@ button {
 }
 
 .hero-figure {
-  margin-top: 64px;
+  margin-top: 46px;
 }
 
 .key-stats {
-  margin-top: 38px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--line);
@@ -624,7 +625,7 @@ button {
 }
 
 .key-stats > div {
-  padding: 28px 20px;
+  padding: 24px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -668,7 +669,7 @@ button {
 
 .contribution {
   position: relative;
-  padding: 38px 36px 42px;
+  padding: 32px 32px 35px;
   text-align: center;
 }
 
@@ -688,7 +689,7 @@ button {
 .contribution-icon {
   width: 62px;
   height: 62px;
-  margin: 0 auto 22px;
+  margin: 0 auto 18px;
   display: grid;
   place-items: center;
   color: var(--teal);
@@ -732,7 +733,7 @@ button {
 }
 
 .engine-pipeline {
-  margin: 0 0 30px;
+  margin: 0 0 24px;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -747,8 +748,8 @@ button {
 
 .engine-pipeline li {
   position: relative;
-  min-height: 205px;
-  padding: 24px 22px 26px;
+  min-height: 190px;
+  padding: 22px 20px 24px;
 }
 
 .engine-pipeline li + li {
@@ -773,7 +774,7 @@ button {
 }
 
 .engine-pipeline strong {
-  margin-top: 24px;
+  margin-top: 20px;
   display: block;
   color: var(--ink-strong);
   font-family: var(--serif);
@@ -788,15 +789,88 @@ button {
   line-height: 1.55;
 }
 
+.subsection-heading {
+  max-width: 840px;
+  margin: 34px auto 22px;
+  text-align: center;
+}
+
+.subsection-heading h3 {
+  margin: 7px 0 9px;
+  color: var(--ink-strong);
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+}
+
+.subsection-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.method-story {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.method-story article {
+  padding: 26px 28px 28px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: linear-gradient(145deg, rgba(16, 36, 58, 0.9), rgba(8, 23, 39, 0.94));
+}
+
+.method-story article > span,
+.result-analysis article > span,
+.efficiency-metrics article > span {
+  color: var(--coral);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.method-story h3,
+.result-analysis h3,
+.training-profile h3,
+.efficiency-panel h3 {
+  margin: 10px 0 10px;
+  color: var(--ink-strong);
+  font-family: var(--serif);
+  font-size: 1.42rem;
+  line-height: 1.28;
+}
+
+.method-story p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.66;
+}
+
+.method-story p + p {
+  margin-top: 10px;
+}
+
+.method-story strong,
+.result-analysis strong {
+  color: var(--teal-dark);
+}
+
 .method-summary {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 14px;
   margin-bottom: 10px;
 }
 
 .method-summary article {
-  padding: 28px 28px 30px;
+  padding: 25px 26px 27px;
   border: 1px solid var(--line);
   border-top: 3px solid var(--teal);
   border-radius: 9px;
@@ -819,7 +893,7 @@ button {
 
 .inference-note {
   max-width: 1040px;
-  margin: 28px auto 0;
+  margin: 22px auto 0;
   padding: 22px 26px;
   display: grid;
   grid-template-columns: 190px 1fr;
@@ -848,6 +922,73 @@ button {
 .inference-note strong,
 .limitations strong {
   color: var(--ink-strong);
+}
+
+.training-profile {
+  margin-top: 22px;
+  padding: 28px 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(440px, 0.95fr);
+  gap: 34px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(16, 36, 58, 0.92), rgba(11, 27, 46, 0.82));
+}
+
+.profile-copy h3,
+.efficiency-copy h3 {
+  font-size: 1.65rem;
+}
+
+.profile-copy p,
+.efficiency-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.profile-stats {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.profile-stats div {
+  min-height: 100px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(5, 19, 33, 0.5);
+}
+
+.profile-stats div:nth-child(even) {
+  border-left: 1px solid var(--line);
+}
+
+.profile-stats div:nth-child(n + 3) {
+  border-top: 1px solid var(--line);
+}
+
+.profile-stats dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.profile-stats dd {
+  margin: 5px 0 0;
+  color: var(--teal-dark);
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 700;
 }
 
 .benchmark-section {
@@ -905,14 +1046,14 @@ button {
 }
 
 .benchmark-evidence {
-  margin-top: 22px;
+  margin-top: 18px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 14px;
 }
 
 .benchmark-evidence article {
-  padding: 23px 24px;
+  padding: 22px 24px 24px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: linear-gradient(145deg, rgba(16, 36, 58, 0.86), rgba(8, 23, 39, 0.9));
@@ -935,7 +1076,7 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  margin-top: 38px;
+  margin-top: 30px;
 }
 
 .benchmark-figures .paper-figure {
@@ -960,11 +1101,11 @@ button {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   max-width: 1040px;
-  margin: 0 auto 58px;
+  margin: 0 auto 34px;
 }
 
 .result-highlights article {
-  min-height: 235px;
+  min-height: 210px;
   padding: 25px;
   display: flex;
   flex-direction: column;
@@ -1015,6 +1156,35 @@ button {
 
 .result-highlights .featured p {
   color: rgba(255, 255, 255, 0.72);
+}
+
+.result-heading {
+  margin-top: 0;
+}
+
+.result-analysis {
+  margin: 0 0 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.result-analysis article {
+  padding: 24px 25px 26px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(16, 36, 58, 0.86), rgba(8, 23, 39, 0.9));
+}
+
+.result-analysis h3 {
+  font-size: 1.28rem;
+}
+
+.result-analysis p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
 }
 
 .results-explorer {
@@ -1377,8 +1547,51 @@ button {
   line-height: 1.6;
 }
 
+.efficiency-panel {
+  margin-top: 22px;
+  padding: 28px 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(460px, 1.1fr);
+  gap: 34px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(14, 34, 56, 0.94), rgba(10, 25, 43, 0.86));
+}
+
+.efficiency-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.efficiency-metrics article {
+  min-height: 180px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(5, 19, 33, 0.58);
+}
+
+.efficiency-metrics strong {
+  margin: auto 0 8px;
+  color: var(--teal-dark);
+  font-family: var(--serif);
+  font-size: 2.45rem;
+  line-height: 1;
+}
+
+.efficiency-metrics p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
 .limitations {
-  margin-top: 20px;
+  margin-top: 18px;
   padding: 22px 26px;
   display: grid;
   grid-template-columns: 145px 1fr;
@@ -1530,6 +1743,15 @@ button {
     margin-top: 30px;
   }
 
+  .training-profile,
+  .efficiency-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .result-analysis {
+    grid-template-columns: 1fr;
+  }
+
   .finding-strip {
     grid-template-columns: 1fr 1fr;
   }
@@ -1670,11 +1892,11 @@ button {
   }
 
   .paper-section {
-    padding: 78px 18px;
+    padding: 54px 18px;
   }
 
   .section-heading {
-    margin-bottom: 38px;
+    margin-bottom: 30px;
   }
 
   .section-heading h2 {
@@ -1743,6 +1965,7 @@ button {
 
   .challenge-grid,
   .contributions,
+  .method-story,
   .method-summary,
   .result-highlights {
     grid-template-columns: 1fr;
@@ -1809,7 +2032,7 @@ button {
   }
 
   .result-highlights article {
-    min-height: 210px;
+    min-height: 195px;
   }
 
   .finding-strip {
@@ -1857,6 +2080,19 @@ button {
   }
 
   .capabilities > div + div {
+    border-top: 1px solid var(--line);
+  }
+
+  .profile-stats,
+  .efficiency-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-stats div:nth-child(even) {
+    border-left: 0;
+  }
+
+  .profile-stats div + div {
     border-top: 1px solid var(--line);
   }
 }

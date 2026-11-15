@@ -9,7 +9,7 @@
   <meta property="og:description" content="Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling">
   <meta property="og:image" content="assets/Figure%201%20Overview%20of%20the%20underwater%20spatial%20data%20engine.png">
   <title>USI-Brain | Underwater Spatial Intelligence</title>
-  <link rel="stylesheet" href="css/style.css?v=20261113-3">
+  <link rel="stylesheet" href="css/style.css?v=20261115-1">
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress"></span></div>
@@ -101,6 +101,7 @@
           <p>Underwater spatial reasoning depends on object boundaries and geometric cues that are obscured by scattering, color distortion, and low visibility. Existing underwater resources capture these cues through images, annotations, and depth maps, but provide fragmented supervision for vision-language models.</p>
           <p>We present a <strong>spatial data engine</strong> that connects visual appearance with object-level geometry through enhancement, 2D and geometry-assisted question generation, and expert filtering. It produces <strong>4.27M QA pairs</strong> across five capability groups. We use this corpus to train USI-Brain and introduce an <strong>Underwater Prior-guided Rectifier (UPR)</strong> that applies gated corrections to visual features.</p>
           <p><strong>USI-Bench</strong> evaluates the resulting capabilities with 6,525 held-out QA pairs. Across NautData, UWBench, and MarineEval, USI-Brain achieves the best or joint-best score on <strong>28 of 32 metrics</strong>.</p>
+          <p>On the 15 USI-Bench tasks, USI-Brain improves over Qwen3-VL-8B-Instruct by <strong>5.76 mean points</strong>, rising to <strong>7.63 points with UPR</strong>. Controlled ablations separate the source of these gains: geometry-assisted supervision improves depth and ordering, HUE-derived supervision improves all 15 tasks, and UPR contributes most strongly to global scene description. Both model variants are evaluated directly on raw underwater images.</p>
         </div>
       </div>
 
@@ -144,6 +145,7 @@
         <div class="section-heading reveal">
           <span class="section-label">What we contribute</span>
           <h2>Three pieces, one spatial system</h2>
+          <p class="section-intro">The work treats underwater spatial intelligence as a connected data, model, and evaluation problem rather than an isolated visual-language task.</p>
         </div>
 
         <div class="contributions">
@@ -153,7 +155,7 @@
               <svg viewBox="0 0 48 48"><path d="M7 11h34v25H7zM13 17h10v7H13zM27 17h8M27 22h8M13 29h22"/></svg>
             </div>
             <h3>Spatial Data Engine</h3>
-            <p>Connects enhanced imagery, instance annotations, depth, and reconstructed scenes into <strong>4.27M quality-controlled QA pairs</strong> spanning five capability groups.</p>
+            <p>Connects enhanced imagery, instance annotations, object-linked depth, and reconstructed scenes into <strong>4.27M quality-controlled QA pairs</strong> spanning five capability groups.</p>
           </article>
           <article class="contribution reveal">
             <span class="contribution-index">02</span>
@@ -161,7 +163,7 @@
               <svg viewBox="0 0 48 48"><path d="M24 6v7M24 35v7M6 24h7M35 24h7M11.3 11.3l5 5M31.7 31.7l5 5M36.7 11.3l-5 5M16.3 31.7l-5 5"/><circle cx="24" cy="24" r="10"/></svg>
             </div>
             <h3>USI-Brain + UPR</h3>
-            <p>Adapts Qwen3-VL-8B-Instruct with structured supervision. UPR predicts underwater bias and gain, then applies a learned gated residual correction to visual tokens.</p>
+            <p>Adapts Qwen3-VL-8B-Instruct with structured supervision. UPR models scattering-related bias and absorption recovery, then applies a learned gated residual correction to visual tokens.</p>
           </article>
           <article class="contribution reveal">
             <span class="contribution-index">03</span>
@@ -169,7 +171,7 @@
               <svg viewBox="0 0 48 48"><path d="M7 39h34M11 35V22M20 35V12M29 35V18M38 35V8"/></svg>
             </div>
             <h3>USI-Bench</h3>
-            <p>Measures five connected capabilities through <strong>6,525 held-out questions</strong>, 15 task metrics, and a complete audit by 15 independent annotators.</p>
+            <p>Measures five connected capabilities through <strong>6,525 held-out questions</strong>, 15 task metrics, source-level isolation, duplicate screening, and a complete audit by 15 annotators.</p>
           </article>
         </div>
       </div>
@@ -190,6 +192,27 @@
           <li><span>04</span><strong>Lift into 3D</strong><p>Depth samples and reconstructed boxes support ordering, occlusion, distance, and viewpoint.</p></li>
           <li><span>05</span><strong>Organize and review</strong><p>Five capability groups followed by expert selection, correction, and deduplication.</p></li>
         </ol>
+
+        <div class="subsection-heading reveal">
+          <span class="summary-label">Supervision at scale</span>
+          <h3>From fragmented resources to object-linked spatial evidence</h3>
+          <p>The engine brings heterogeneous images, video frames, instance labels, depth, and reconstructed geometry into one QA representation while preserving the connection between an object, its image region, and its spatial cues.</p>
+        </div>
+
+        <div class="method-story reveal">
+          <article>
+            <span>Data foundation</span>
+            <h3>A broad visual source pool</h3>
+            <p>Approximately <strong>540K visual samples</strong> are drawn from the ten datasets aggregated in NautData together with CoralVQA, WebUOT-1M, and about <strong>400 reconstructed Atlantis scenes</strong>. The sources cover varied habitats, objects, visibility conditions, and annotation formats.</p>
+            <p>Candidate QA pairs are organized by capability and reviewed for answer evidence, localization consistency, and redundancy before entering the final corpus.</p>
+          </article>
+          <article>
+            <span>Model adaptation</span>
+            <h3>One objective across 2D and 3D reasoning</h3>
+            <p>USI-Brain is initialized from <strong>Qwen3-VL-8B-Instruct</strong>. The vision encoder, multimodal merger, and language model are jointly fine-tuned on the combined 2D and geometry-assisted corpus for two epochs.</p>
+            <p>The model uses the standard QA cross-entropy objective without auxiliary distillation, allowing the component studies to attribute gains directly to supervision coverage and UPR.</p>
+          </article>
+        </div>
 
         <div class="method-summary reveal">
           <article>
@@ -220,6 +243,20 @@
           <span>Training supervision vs. inference</span>
           <p>HUE, depth maps, fitted 3D boxes, and reconstructed scenes are used to build supervision offline. Both USI-Brain variants are evaluated on <strong>raw underwater images</strong>; no enhanced image or depth input is required at inference.</p>
         </aside>
+
+        <div class="training-profile reveal" id="training-profile">
+          <div class="profile-copy">
+            <span class="summary-label">Training configuration</span>
+            <h3>Full-stack adaptation at scale</h3>
+            <p>Training uses mixed precision, gradient checkpointing, SDPA, and FSDP full sharding. The language model and vision encoder use separate learning rates, while the model, merger, and visual stack remain trainable.</p>
+          </div>
+          <dl class="profile-stats">
+            <div><dt>Training corpus</dt><dd>4.27M QA</dd></div>
+            <div><dt>Optimization</dt><dd>2 epochs</dd></div>
+            <div><dt>Compute</dt><dd>64 &times; B200</dd></div>
+            <div><dt>Full run</dt><dd>~25 hours</dd></div>
+          </dl>
+        </div>
       </div>
     </section>
 
@@ -241,8 +278,9 @@
 
         <div class="benchmark-evidence reveal">
           <article><strong>Source-level isolation</strong><p>Images, video frames, and all processed derivatives remain in the same split. Test sources from USI-Bench and all external benchmarks are excluded from training-QA construction.</p></article>
-          <article><strong>Duplicate screening</strong><p>Source IDs and QA links are checked alongside SHA-256 and perceptual hashes to reduce train–test leakage.</p></article>
+          <article><strong>Duplicate screening</strong><p>Source IDs and QA links are checked alongside SHA-256 and perceptual hashes to reduce train-test leakage.</p></article>
           <article><strong>Full human audit</strong><p>Fifteen independent annotators audited all 6,525 items. The initial 10% uncertain and 7% incorrect entries were revised before evaluation.</p></article>
+          <article><strong>Task-aware scoring</strong><p>Evaluation combines accuracy, Acc@IoU0.5, Recall@IoU0.5, Kendall's tau, macro-F1, and three independent semantic judges instead of reducing every capability to one generic metric.</p></article>
         </div>
 
         <div class="benchmark-figures">
@@ -273,6 +311,30 @@
           <article><span>USI-Brain</span><strong>+5.76</strong><p>mean points over the Qwen3-VL-8B-Instruct backbone</p></article>
           <article class="featured"><span>USI-Brain + UPR</span><strong>+7.63</strong><p>mean points across all 15 USI-Bench tasks</p></article>
           <article><span>Scene description</span><strong>+18.0</strong><p>incremental points from UPR under matched training data</p></article>
+        </div>
+
+        <div class="subsection-heading result-heading reveal">
+          <span class="summary-label">What the experiments show</span>
+          <h3>Gains follow the supervision that was added</h3>
+          <p>The main results and controlled removals provide complementary evidence: the corpus improves broad task coverage, geometry targets spatial ordering, and feature rectification most strongly affects global scene understanding.</p>
+        </div>
+
+        <div class="result-analysis reveal">
+          <article>
+            <span>Corpus transfer</span>
+            <h3>12 of 15 tasks improve without UPR</h3>
+            <p>USI-Brain gains <strong>+17.0</strong> in captioning, <strong>+15.7</strong> in structural perception, and <strong>+10.1</strong> in ordering over the Qwen3-VL-8B-Instruct backbone.</p>
+          </article>
+          <article>
+            <span>Feature rectification</span>
+            <h3>UPR changes the capability profile</h3>
+            <p>USI-Brain + UPR improves 13 of 15 tasks and reaches the best or joint-best listed result on seven. Scene description rises from <strong>47.3 to 65.3</strong> under matched training data.</p>
+          </article>
+          <article>
+            <span>External transfer</span>
+            <h3>The gains extend beyond USI-Bench</h3>
+            <p>NautData VQA accuracy rises from <strong>0.381 to 0.478</strong>, UWBench referring Acc@IoU0.7 improves by <strong>13.87 points</strong>, and MarineEval spatial-relation assessment improves by <strong>15 points</strong>.</p>
+          </article>
         </div>
 
         <div class="results-explorer reveal">
@@ -349,9 +411,21 @@
           <article><span>Underwater Prior-guided Rectifier</span><strong>+18.0 Scene description</strong><p>With the same 4.27M-QA corpus, UPR also adds 1.3 points in grounding, 1.1 in depth, and 0.9 in ordering.</p></article>
         </div>
 
+        <div class="efficiency-panel reveal" id="efficiency">
+          <div class="efficiency-copy">
+            <span class="summary-label">Inference efficiency</span>
+            <h3>A practical baseline and an explicit UPR trade-off</h3>
+            <p>Single-image inference uses raw inputs and batch size 1 on an RTX 3090. UPR adds a prior encoder and doubles the post-merger visual sequence, improving scene understanding at a measurable latency and memory cost.</p>
+          </div>
+          <div class="efficiency-metrics">
+            <article><span>USI-Brain</span><strong>0.84 s</strong><p>16.57 GiB peak memory<br>35.86 decode tokens/s</p></article>
+            <article><span>USI-Brain + UPR</span><strong>1.63 s</strong><p>21.80 GiB peak memory<br>34.50 decode tokens/s</p></article>
+          </div>
+        </div>
+
         <aside class="limitations reveal">
           <span>Current frontier</span>
-          <p>Distance estimation and environment recognition remain slightly below the Qwen3-VL-8B-Instruct backbone, while foreground/background macro-F1 reaches 22.7. These tasks identify the clearest priorities for broader supervision and more complete spatial evaluation.</p>
+          <p>Distance estimation and environment recognition remain slightly below the Qwen3-VL-8B-Instruct backbone, while foreground/background macro-F1 reaches 22.7. Detection is currently measured by Recall@IoU0.5, so precision-oriented analysis would better expose false positives. These tasks identify the clearest priorities for broader supervision and more complete spatial evaluation.</p>
         </aside>
       </div>
     </section>
@@ -397,7 +471,7 @@
   </footer>
 
   <script src="vendor/echarts.min.js?v=5.6.0"></script>
-  <script src="js/results.js?v=20261113-3"></script>
-  <script src="js/app.js?v=20261113-3"></script>
+  <script src="js/results.js?v=20261115-1"></script>
+  <script src="js/app.js?v=20261115-1"></script>
 </body>
 </html>
