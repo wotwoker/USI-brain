@@ -82,7 +82,7 @@
     },
   };
 
-  const palette = ['#0a7884', '#cf634b', '#93a8ad', '#f2c95c', '#7b8d93', '#b7c5c8'];
+  const palette = ['#42d1e6', '#8b9cff', '#68e0bd', '#f0b96b', '#6d91b5', '#b27fe7'];
   let activeKey = 'overview';
   let compact = window.matchMedia('(max-width: 720px)').matches;
   let chart = null;
@@ -106,11 +106,13 @@
   const sharedTooltip = {
     trigger: 'axis',
     confine: true,
-    backgroundColor: 'rgba(18, 36, 44, 0.94)',
-    borderWidth: 0,
+    backgroundColor: 'rgba(3, 12, 25, 0.96)',
+    borderColor: 'rgba(85, 207, 231, 0.32)',
+    borderWidth: 1,
     padding: [10, 12],
-    textStyle: { color: '#fff', fontSize: 12 },
-    axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(10, 120, 132, 0.06)' } },
+    textStyle: { color: '#edf7ff', fontSize: 13 },
+    extraCssText: 'box-shadow: 0 14px 36px rgba(0, 4, 12, 0.42); border-radius: 8px;',
+    axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(66, 209, 230, 0.07)' } },
   };
 
   const overviewOption = (dataset) => ({
@@ -129,8 +131,8 @@
       max: 100,
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: '#7b888e', formatter: '{value}%' },
-      splitLine: { lineStyle: { color: '#e8edee' } },
+      axisLabel: { color: '#9cb1c6', fontSize: 12, formatter: '{value}%' },
+      splitLine: { lineStyle: { color: 'rgba(120, 166, 204, 0.14)' } },
     },
     yAxis: {
       type: 'category',
@@ -138,7 +140,7 @@
       data: dataset.metrics,
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: '#29333b', fontWeight: 650, fontSize: compact ? 10 : 12 },
+      axisLabel: { color: '#d7e4ef', fontWeight: 650, fontSize: compact ? 11 : 13 },
     },
     series: [{
       name: 'Best / joint-best',
@@ -146,13 +148,23 @@
       data: dataset.values,
       barWidth: compact ? 20 : 25,
       showBackground: true,
-      backgroundStyle: { color: '#eff3f3', borderRadius: 4 },
-      itemStyle: { color: '#0a7884', borderRadius: [0, 5, 5, 0] },
+      backgroundStyle: { color: 'rgba(120, 166, 204, 0.11)', borderRadius: 4 },
+      itemStyle: {
+        color: {
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 1,
+          y2: 0,
+          colorStops: [{ offset: 0, color: '#237f9e' }, { offset: 1, color: '#42d1e6' }],
+        },
+        borderRadius: [0, 5, 5, 0],
+      },
       label: {
         show: true,
         position: 'right',
-        color: '#07545e',
-        fontSize: compact ? 10 : 12,
+        color: '#79e5f2',
+        fontSize: compact ? 11 : 13,
         fontWeight: 750,
         formatter: (item) => dataset.counts[item.dataIndex],
       },
@@ -175,20 +187,20 @@
         itemWidth: 12,
         itemHeight: 7,
         itemGap: 18,
-        textStyle: { color: '#65727a', fontSize: 11 },
-        pageIconColor: '#0a7884',
-        pageIconInactiveColor: '#bcc8ca',
-        pageTextStyle: { color: '#65727a' },
+        textStyle: { color: '#afc2d3', fontSize: 12 },
+        pageIconColor: '#42d1e6',
+        pageIconInactiveColor: '#456078',
+        pageTextStyle: { color: '#9cb1c6', fontSize: 12 },
       },
       grid: { left: compact ? 44 : 60, right: compact ? 18 : 32, top: 74, bottom: needsZoom ? 112 : 88 },
       xAxis: {
         type: 'category',
         data: dataset.metrics,
-        axisLine: { lineStyle: { color: '#cad3d5' } },
+        axisLine: { lineStyle: { color: 'rgba(120, 166, 204, 0.24)' } },
         axisTick: { show: false },
         axisLabel: {
-          color: '#65727a',
-          fontSize: compact ? 9 : 10,
+          color: '#a9bdcf',
+          fontSize: compact ? 10 : 11,
           interval: 0,
           rotate: compact ? 38 : 24,
           margin: 15,
@@ -201,8 +213,8 @@
         max: 100,
         axisLine: { show: false },
         axisTick: { show: false },
-        axisLabel: { color: '#7b888e', fontSize: 10 },
-        splitLine: { lineStyle: { color: '#e8edee' } },
+        axisLabel: { color: '#9cb1c6', fontSize: 11 },
+        splitLine: { lineStyle: { color: 'rgba(120, 166, 204, 0.14)' } },
       },
       dataZoom: needsZoom ? [
         { type: 'inside', start: 0, end },
@@ -213,10 +225,18 @@
           bottom: 17,
           height: 14,
           borderColor: 'transparent',
-          backgroundColor: '#edf2f2',
-          fillerColor: 'rgba(10, 120, 132, 0.22)',
-          handleStyle: { color: '#0a7884', borderColor: '#0a7884' },
-          moveHandleStyle: { color: '#0a7884' },
+          backgroundColor: 'rgba(120, 166, 204, 0.1)',
+          dataBackground: {
+            lineStyle: { color: '#49677e' },
+            areaStyle: { color: 'rgba(73, 103, 126, 0.22)' },
+          },
+          selectedDataBackground: {
+            lineStyle: { color: '#42d1e6' },
+            areaStyle: { color: 'rgba(66, 209, 230, 0.2)' },
+          },
+          fillerColor: 'rgba(66, 209, 230, 0.18)',
+          handleStyle: { color: '#42d1e6', borderColor: '#79e5f2' },
+          moveHandleStyle: { color: '#42d1e6' },
           showDetail: false,
         },
       ] : [],
