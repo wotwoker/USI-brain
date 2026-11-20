@@ -114,6 +114,20 @@ This repository contains the **static project page** for USI-Brain, including th
 
 Research code will be released separately in the [USI-Brain code repository](https://github.com/SKY-Zhu-91/USI-Brain). Model weights are available through our [Hugging Face organization](https://huggingface.co/USI-Brain).
 
+## 📝 Citation
+
+If you find USI-Brain useful in your research, please consider citing our paper:
+
+```bibtex
+@article{zhu2026usibrain,
+  title   = {{USI-Brain}: Enhancing Underwater Spatial Intelligence via Spatial Data-Driven Vision-Language Modeling},
+  author  = {Zhu, Zhiliang and Zhao, Zhiqiang and Jiang, Xie'an and Lai, Yingxin and Zheng, Kangye and Zhao, Dawei},
+  journal = {arXiv preprint arXiv:2611.06040},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2611.06040},
+  url     = {https://arxiv.org/abs/2611.06040}
+}
+```
 ## 📬 Contact
 
 For questions about this project, please contact:
