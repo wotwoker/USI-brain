@@ -34,14 +34,27 @@ Understanding objects, geometry, and spatial relationships in the underwater wor
 </p>
 
 <p>
-Zhiliang Zhu · Zhiqiang Zhao · Xie'an Jiang · Yingxin Lai · Kangye Zheng · Dawei Zhao
+  Zhiliang Zhu<sup>1,*,†</sup> ·
+  Zhiqiang Zhao<sup>1,*</sup> ·
+  Xie'an Jiang<sup>1,*</sup> ·
+  Yingxin Lai<sup>2</sup> ·
+  Kangye Zheng<sup>1</sup> ·
+  Dawei Zhao<sup>1,‡</sup>
 </p>
 
 <p>
-Harbin Engineering University · Xiamen University
+  <sup>1</sup>Harbin Engineering University
+  &nbsp;&nbsp;
+  <sup>2</sup>Xiamen University
 </p>
 
-</div>
+<p>
+  <sup>*</sup>Equal contribution.
+  &nbsp;&nbsp;
+  <sup>†</sup>Project leader.
+  &nbsp;&nbsp;
+  <sup>‡</sup>Corresponding author.
+</p>
 
 ---
 
@@ -96,10 +109,14 @@ See the [paper](https://arxiv.org/abs/2611.06040) and [project website](https://
 
 ## 👥 Authors
 
-**Zhiliang Zhu, Zhiqiang Zhao, Xie'an Jiang, Yingxin Lai, Kangye Zheng, and Dawei Zhao.**
-
-🏫 Harbin Engineering University · Xiamen University
-
+| Author | Affiliation | Contribution / Role |
+| :--- | :--- | :--- |
+| **Zhiliang Zhu** | Harbin Engineering University | Equal contribution · Project leader |
+| **Zhiqiang Zhao** | Harbin Engineering University | Equal contribution |
+| **Xie'an Jiang** | Harbin Engineering University | Equal contribution |
+| **Yingxin Lai** | Xiamen University | — |
+| **Kangye Zheng** | Harbin Engineering University | — |
+| **Dawei Zhao** | Harbin Engineering University | Corresponding author |
 ## 📁 About This Repository
 
 This repository contains the **static project page** for USI-Brain, including the paper, figures, responsive styles, and lightweight browser interactions. The website is implemented with plain HTML, CSS, and JavaScript and is hosted with GitHub Pages.
