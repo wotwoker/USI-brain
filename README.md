@@ -2,34 +2,36 @@
 
 <h1>🌊 USI-Brain</h1>
 
-<h3>Enhancing Underwater Spatial Intelligence<br>
-via Spatial Data-Driven Vision-Language Modeling</h3>
+<h3>
+  Enhancing Underwater Spatial Intelligence<br>
+  via Spatial Data-Driven Vision-Language Modeling
+</h3>
 
 <p>
-Understanding objects, geometry, and spatial relationships in the underwater world.
+  Understanding objects, geometry, and spatial relationships in the underwater world.
 </p>
 
 <p>
   <a href="https://wotwoker.github.io/USI-brain/">
-    <img src="https://img.shields.io/badge/Project-Website-087F8C?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Project Website">
+    <img src="https://img.shields.io/badge/Project-Website-087F8C?style=for-the-badge&amp;logo=googlechrome&amp;logoColor=white" alt="Project Website">
   </a>
   <a href="https://arxiv.org/abs/2611.06040">
-    <img src="https://img.shields.io/badge/arXiv-2611.06040-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white" alt="Paper on arXiv">
+    <img src="https://img.shields.io/badge/arXiv-2611.06040-B31B1B?style=for-the-badge&amp;logo=arxiv&amp;logoColor=white" alt="Paper on arXiv">
   </a>
   <a href="https://arxiv.org/pdf/2611.06040">
-    <img src="https://img.shields.io/badge/Paper-PDF-375A7F?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Paper PDF">
+    <img src="https://img.shields.io/badge/Paper-PDF-375A7F?style=for-the-badge&amp;logo=readthedocs&amp;logoColor=white" alt="Paper PDF">
   </a>
 </p>
 
 <p>
   <a href="https://github.com/wotwoker/USI-brain">
-    <img src="https://img.shields.io/badge/GitHub-Project_Repo-181717?style=for-the-badge&logo=github&logoColor=white" alt="Project Website Repository">
+    <img src="https://img.shields.io/badge/GitHub-Project_Repo-181717?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Project Website Repository">
   </a>
   <a href="https://github.com/SKY-Zhu-91/USI-Brain">
-    <img src="https://img.shields.io/badge/GitHub-Research_Code-245B78?style=for-the-badge&logo=github&logoColor=white" alt="Research Code Repository">
+    <img src="https://img.shields.io/badge/GitHub-Research_Code-245B78?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Research Code Repository">
   </a>
   <a href="https://huggingface.co/USI-Brain">
-    <img src="https://img.shields.io/badge/Hugging_Face-Models-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" alt="Hugging Face">
+    <img src="https://img.shields.io/badge/Hugging_Face-Models-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Hugging Face">
   </a>
 </p>
 
@@ -55,6 +57,8 @@ Understanding objects, geometry, and spatial relationships in the underwater wor
   &nbsp;&nbsp;
   <sup>‡</sup>Corresponding author.
 </p>
+
+</div>
 
 ---
 
